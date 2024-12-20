@@ -4,6 +4,7 @@ import Footer from '../Components/FooterHome/Footer';
 
 import maryemPic from '../Assets/maryem.jpg'
 import oudayPic from '../Assets/ouday.jpg'
+import emanPic from '../Assets/emna.jpg'
 import './Equipe.css'
 
 const Equipe = () => {
@@ -33,8 +34,8 @@ const Equipe = () => {
                         </div>
 
                         <div className="equipe__member">
-                            <img src="images/member4.jpg" alt="Sarah Williams" className="equipe__photo" />
-                            <h3 className="equipe__name">Sarah Williams</h3>
+                            <img src={emanPic} alt="Sarah Williams" className="equipe__photo" />
+                            <h3 className="equipe__name">Imen Yedes</h3>
                             <p className="equipe__role">Front-End Developer</p>
                             <p className="equipe__description">Ensures smooth and efficient user interactions with the app.</p>
                         </div>
