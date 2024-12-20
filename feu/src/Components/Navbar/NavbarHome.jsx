@@ -10,8 +10,8 @@ const NavbarHome = () => {
     const navigate = useNavigate();
 
 
-    const handleAccess = () => {
-        navigate('/access');
+    const handleContact = () => {
+        navigate('/contact');
     };
 
     const openModal = () => {
@@ -44,7 +44,7 @@ const NavbarHome = () => {
                 </div>
                 <div className='navbarHomeRight'>
                     <button className='loginBtn' onClick={openModal}>Sign In</button>
-                    <button className='AccessBtn' onClick={handleAccess}>Get Unlimited Access</button>
+                    <button className='AccessBtn' onClick={handleContact}>Contact Us</button>
                 </div>
             </nav>
 

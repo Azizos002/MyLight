@@ -9,6 +9,7 @@ import Home from './Components/Home/Home';
 import Functionalities from './Pages/Functionalities';
 import Technologies from './Pages/Technologies';
 import Equipe from './Pages/Equipe';
+import Contact from './Components/Contact/Contact';
 function App() {
 
 
@@ -22,7 +23,9 @@ function App() {
         <Route path='/Functionalities' element={<Functionalities />} />
         <Route path='/Technologies' element={<Technologies />} />
         <Route path='/Equipe' element={<Equipe />} />
+        <Route path='/contact' element={<Contact />} />
         <Route path='/traffic' element={<Main />} />
+
 
         </Routes>
       </Router>

@@ -8,6 +8,7 @@ import emailIcon from '../Assets/emailIcon.svg';
 import passwordIcon from '../Assets/passwordIcon.svg';
 import sigininVector from '../Assets/signinVector.svg';
 import { useNavigate } from 'react-router-dom';
+import NavbarHome from './Navbar/NavbarHome';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -86,7 +87,7 @@ const Login = () => {
         }
     };
 
-// alert(serverError);
+    // alert(serverError);
 
     // ✅ **Navigate to Register Page**
     const openRegisterModal = () => {
@@ -94,77 +95,80 @@ const Login = () => {
     };
 
     return (
-        <div className="ModalContent">
-            <div className="modal-left">
-                <h2 className='SignInModalTitle'>Sign in to continue</h2>
-                
-                <button className="googleBtn">
-                    <img src={googleHome} alt="Google Icon" /> Sign in with Google
-                </button>
-                
-                <div className="divider">
-                    <hr />
-                    <span>Or</span>
-                    <hr />
+        <>
+            <NavbarHome />
+            <div className="ModalContent">
+                <div className="modal-left">
+                    <h2 className='SignInModalTitle'>Sign in to continue</h2>
+
+                    <button className="googleBtn">
+                        <img src={googleHome} alt="Google Icon" /> Sign in with Google
+                    </button>
+
+                    <div className="divider">
+                        <hr />
+                        <span>Or</span>
+                        <hr />
+                    </div>
+
+                    {/* {serverError && <div className="errorMsg">{serverError}</div>} */}
+
+                    <form onSubmit={handleSubmit}>
+                        {/* Email Input */}
+                        <div className="input-wrapper">
+                            <label>Email address</label>
+                            <div className="input-icon">
+                                <img
+                                    src={emailIcon}
+                                    alt="email icon"
+                                    className={`icon ${errors.email ? 'icon-error' : ''}`}
+                                />
+                                <input
+                                    type="text"
+                                    name="email"
+                                    placeholder='Enter your email'
+                                    value={email}
+                                    onChange={handleInputChange}
+                                    className={errors.email ? 'input-error' : ''}
+                                />
+                            </div>
+                            {errors.email && <div className='errorMsg'>{errors.email}</div>}
+                        </div>
+
+                        {/* Password Input */}
+                        <div className="input-wrapper">
+                            <label>Password</label>
+                            <div className="input-icon">
+                                <img
+                                    src={passwordIcon}
+                                    alt="password icon"
+                                    className={`icon ${errors.password ? 'icon-error' : ''}`}
+                                />
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder='Enter your password'
+                                    value={password}
+                                    onChange={handleInputChange}
+                                    className={errors.password ? 'input-error' : ''}
+                                />
+                            </div>
+                            {errors.password && <div className='errorMsg'>{errors.password}</div>}
+                        </div>
+
+                        <button type="submit" className="signInBtn">Log In</button>
+                    </form>
+
+                    <p className='linkRegister'>Don't have an account? {' '}
+                        <span><button className='linkToRegister' onClick={openRegisterModal}>Create one!</button></span>
+                    </p>
                 </div>
-                
-                {/* {serverError && <div className="errorMsg">{serverError}</div>} */}
-                
-                <form onSubmit={handleSubmit}>
-                    {/* Email Input */}
-                    <div className="input-wrapper">
-                        <label>Email address</label>
-                        <div className="input-icon">
-                            <img
-                                src={emailIcon}
-                                alt="email icon"
-                                className={`icon ${errors.email ? 'icon-error' : ''}`}
-                            />
-                            <input
-                                type="text"
-                                name="email"
-                                placeholder='Enter your email'
-                                value={email}
-                                onChange={handleInputChange}
-                                className={errors.email ? 'input-error' : ''}
-                            />
-                        </div>
-                        {errors.email && <div className='errorMsg'>{errors.email}</div>}
-                    </div>
 
-                    {/* Password Input */}
-                    <div className="input-wrapper">
-                        <label>Password</label>
-                        <div className="input-icon">
-                            <img
-                                src={passwordIcon}
-                                alt="password icon"
-                                className={`icon ${errors.password ? 'icon-error' : ''}`}
-                            />
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder='Enter your password'
-                                value={password}
-                                onChange={handleInputChange}
-                                className={errors.password ? 'input-error' : ''}
-                            />
-                        </div>
-                        {errors.password && <div className='errorMsg'>{errors.password}</div>}
-                    </div>
-
-                    <button type="submit" className="signInBtn">Log In</button>
-                </form>
-
-                <p className='linkRegister'>Don't have an account? {' '}
-                    <span><button className='linkToRegister' onClick={openRegisterModal}>Create one!</button></span>
-                </p>
+                <div className="modal-right">
+                    <img src={sigininVector} alt="" className="right-image" />
+                </div>
             </div>
-
-            <div className="modal-right">
-                <img src={sigininVector} alt="" className="right-image" />
-            </div>
-        </div>
+        </>
     );
 };
 
